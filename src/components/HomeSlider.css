@@ -1,0 +1,207 @@
+.slider-container {
+  width: 100%;
+  height: 100%; /* Takes up 70% of the screen height */
+  overflow: hidden;
+  position:relative;
+  z-index:1;
+}
+
+.slider-btn{
+  background: linear-gradient(135deg, var(--brand-blue), #0a3a86) !important;
+  border-radius:50px!important;
+}
+
+.slide-container img:hover{
+  filter:grayscale(1)!important;
+  cursor: pointer;
+}
+
+/* The Animation */
+@keyframes kenBurns {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  100% {
+    transform: scale(1.1) translate(-1%, -1%);
+  }
+}
+
+/* Apply to the image inside the active slide */
+.swiper-slide-active .slide-inner img {
+  animation: kenBurns 10s ease-in-out infinite;
+}
+
+/* 1. Initial State: Hidden and moved down/left */
+.slide-text h1, 
+.slide-text button {
+  opacity: 0;
+  transform: translateX(-30px); /* Moves it down 30px */
+  transition: all 0.8s ease-out;
+}
+
+/* 2. Active State: When the slide is active, animate in */
+.swiper-slide-active .slide-text h1 {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.3s; /* Heading comes in first */
+}
+
+.swiper-slide-active .slide-text button {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.6s; /* Button follows shortly after */
+}
+
+/* Ensure the container hides the "overflow" so the zoom stays inside the box */
+
+
+
+/* Mobile Fix */
+@media (max-width: 968px) {
+  .slider-container {
+    height: 100%; /* Force a shorter height on mobile */
+  }
+}
+
+/* Target Mobile View (screens smaller than 768px) */
+@media (max-width: 767px) {
+  .slide-inner {
+    height: 350px !important;
+  }
+
+  /* Adjust the image to fit the new height without stretching */
+  .slide-inner img {
+    height: 350px !important;
+    object-fit: cover; 
+    width: 100%;
+  }
+}
+
+@media(max-width:935px){
+  .why-us .media{
+    order:1;
+  }
+}
+
+.slide-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Ensure the parent is the anchor */
+.slide-inner {
+  position: relative;
+  width: 100%;
+  height: 620px; /* Or whatever height your slider is */
+  overflow: hidden;
+}
+
+/* This is the secret to vertical centering */
+.slide-content-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Important: Must be 100% to find the middle */
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* This pushes the content to the vertical middle */
+  z-index: 10;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Black with 40% opacity - adjust the 0.4 to your liking */
+  background-color: rgba(0, 0, 0, 0.4); 
+  z-index: 5; /* Sit above the image but below the text */
+}
+
+
+/* This keeps your text from hitting the edges and aligns with the logo */
+.custom-container {
+  width: 100%;
+  max-width: 1320px; /* Match your Navbar's width */
+  margin: 0 auto;    /* Centers the container box horizontally */    /* Match your Navbar's side padding */
+}
+
+/* Mobile Styles (Screens smaller than 1200px) */
+@media (max-width: 1200px) {
+  .custom-container {
+    padding: 0 20px;   /* Match your navbar logo's mobile margin */
+    display: flex;
+    align-items: center; /* Optional: Center text horizontally on mobile */
+    justify-content: center;
+  }
+
+  .slide-text {
+    text-align: center; /* Often looks better on mobile */
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .cta-btn {
+    padding: 10px 20px; /* Make the button a comfortable tap size */
+    font-size: 0.9rem;
+  }
+}
+
+@media (1205px <= width <= 1525px) {
+  .custom-container {
+    padding: 0 90px;
+  }
+}
+
+.slide-text {
+  text-align: left; /* Keep text left-aligned to line up with the logo */
+}
+
+.slide-text h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+}
+
+ .slide-text p {
+  color: #fff!important;
+  }
+
+.cta-btn {
+  padding: 12px 30px;
+  background: #ff4757;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  border-radius: 5px;
+}
+
+/* Optional: Customizing Swiper Arrows color */
+.swiper-button-next, .swiper-button-prev {
+  color: #fff !important;
+}
+.swiper-pagination-bullet-active {
+  background: #fff !important;
+}
+
+.logo-swiper .swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+
+.brand-section {
+  padding: 50px 0px;
+}
+
+
+.brand-section h2 {
+  margin-bottom: 30px;
+}
+
+
+/* blog section */
